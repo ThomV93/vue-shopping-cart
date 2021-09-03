@@ -1,0 +1,117 @@
+<template>
+  <div className="shop">
+    <h1>Available Sets</h1>
+    <div className="sets"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Shop",
+  data() {
+    return {
+      sets: null,
+    };
+  },
+  async created() {
+    try {
+      const data = await fetch(
+        "https://api.pokemontcg.io/v2/sets?q=series:base"
+      );
+      const items = await data.json();
+      this.sets = items.data;
+      console.log(this.sets);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+};
+</script>
+
+<style lang="scss">
+.shop {
+  display: flex;
+  flex-direction: column;
+  height: 92vh;
+  width: 100vw;
+  padding: 2rem 3.8rem;
+  bottom: 2rem;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    font-family: walkway;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sets {
+    height: 88vh;
+    width: auto;
+    max-width: 1344px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-self: center;
+    gap: 1.3rem;
+    overflow: scroll;
+    padding: 0.5rem 0 1.5rem 0;
+
+    .set-container {
+      &:hover {
+        transform: scale(1.05);
+      }
+      text-align: center;
+      padding: 1.5rem 2rem;
+      height: 290px;
+      width: 420px;
+      border-radius: 0.25rem;
+      box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.2);
+      color: #4a4a4a;
+      cursor: pointer;
+      transition: 300ms;
+
+      img {
+        height: 130px;
+        width: auto;
+        margin-bottom: 5px;
+      }
+
+      div {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        width: 100%;
+        height: 40%;
+
+        img {
+          grid-column: 1;
+          grid-row: 1/ -1;
+          height: 45px;
+          width: auto;
+          margin: 1.1rem auto auto auto;
+        }
+
+        .set-name {
+          grid-column: 2/ -1;
+          grid-row: 1;
+          font-size: 1.5rem;
+          font-weight: 400;
+          margin: auto auto 0 0;
+          text-align: start;
+        }
+
+        .set-release-date {
+          grid-column: 2/ -1;
+          grid-row: 2;
+          text-align: start;
+        }
+      }
+    }
+  }
+}
+</style>
