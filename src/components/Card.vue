@@ -1,10 +1,12 @@
 <template>
-  <img :src="card.images.small" :alt="card.name" />
+  <router-link :to="{ name: 'CardDetails', params: { id: card.id } }">
+    <img :src="card.images.small" :alt="card.name" />
+  </router-link>
 </template>
 
 <script>
 export default {
-  name: "Card",
+  name: "CardDetails",
   props: {
     card: {
       type: Object,

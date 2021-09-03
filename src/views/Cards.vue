@@ -27,7 +27,6 @@ export default {
       );
       const set = await data.json();
       this.cards = set.data;
-      console.log(set.data);
     } catch (error) {
       console.log(error);
     }

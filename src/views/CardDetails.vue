@@ -1,0 +1,82 @@
+<template>
+  <div v-if="card" className="card">
+    <img :src="card.images.large" :alt="card.name" />
+    <div className="card-details">
+      <!-- <CardTitle title="{title}" /> -->
+      <h2>Details</h2>
+      <!-- <CardDetails details="{details}" /> -->
+      <h2>Prices</h2>
+      <span>Last Updated {{ card.tcgplayer.updatedAt }}</span>
+      <!-- <CardPrices priceInfo="{priceInfo}" /> -->
+      <button>Add to Cart</button>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "CardDetails",
+  props: ["id"],
+  data() {
+    return {
+      card: null,
+    };
+  },
+  async created() {
+    try {
+      const data = await fetch(`https://api.pokemontcg.io/v2/cards/${this.id}`);
+      const item = await data.json();
+      this.card = item.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.card {
+  display: flex;
+  justify-content: space-between;
+  height: 92vh;
+  width: 100vw;
+  padding: 2rem 3.9rem;
+
+  img {
+    height: 80vh;
+    width: auto;
+    border-radius: 8px;
+    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.45);
+  }
+
+  .card-details {
+    width: 90%;
+    padding: 0 3.1rem 1.5rem 3.1rem;
+    max-width: 50vw;
+    overflow: scroll;
+
+    h2 {
+      margin: 0.2rem 0;
+    }
+
+    h3 {
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    button {
+      &:hover {
+        background-color: #45a049;
+      }
+      width: 100%;
+      font-size: 1.1rem;
+      background-color: #4caf50;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+}
+</style>
