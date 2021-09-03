@@ -10,7 +10,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
 @font-face {
   font-family: "walkway";
-  src: url(./assets/Walkway_SemiBold.ttf);
+  src: url(./assets/fonts/Walkway_SemiBold.ttf);
 }
 
 * {

@@ -7,7 +7,7 @@
         target="_blank"
         rel="noreferrer noopener"
       >
-        <img src="@/assets/github.svg" alt="gitLogo" />
+        <img src="@/assets/images/github.svg" alt="gitLogo" />
       </a>
     </div>
     <p>built with Pokémon TCG API</p>

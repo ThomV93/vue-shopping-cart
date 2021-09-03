@@ -8,7 +8,7 @@
       <Credits />
     </div>
     <div className="image-container">
-      <img src="@/assets/pokeball.png" alt="Pokeball" />
+      <img src="@/assets/images/pokeball.png" alt="Pokeball" />
     </div>
   </div>
 </template>
