@@ -1,12 +1,14 @@
 <template>
-  <div className="set-container">
-    <img :src="set.images.logo" :alt="set.name" />
-    <div>
-      <img :src="set.images.symbol" alt="symbol" />
-      <p className="set-name">{{ set.name }}</p>
-      <p className="set-release-date">Released in {{ set.releaseDate }}</p>
+  <router-link :to="{ name: 'Cards', params: { id: set.id } }">
+    <div className="set-container">
+      <img :src="set.images.logo" :alt="set.name" />
+      <div>
+        <img :src="set.images.symbol" alt="symbol" />
+        <p className="set-name">{{ set.name }}</p>
+        <p className="set-release-date">Released in {{ set.releaseDate }}</p>
+      </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>

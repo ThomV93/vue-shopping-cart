@@ -2,18 +2,18 @@
   <div className="shop">
     <h1>Available Sets</h1>
     <div className="sets" v-if="sets">
-      <Cardset v-for="set in sets" :key="set.ptcgoCode" :set="set" />
+      <Set v-for="set in sets" :key="set.ptcgoCode" :set="set" />
     </div>
   </div>
 </template>
 
 <script>
-import Cardset from "@/components/Cardset.vue";
+import Set from "@/components/Set.vue";
 
 export default {
   name: "Shop",
   components: {
-    Cardset,
+    Set,
   },
   data() {
     return {
@@ -27,7 +27,6 @@ export default {
       );
       const items = await data.json();
       this.sets = items.data;
-      console.log(this.sets);
     } catch (error) {
       console.log(error);
     }
