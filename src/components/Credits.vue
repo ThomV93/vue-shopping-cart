@@ -3,7 +3,7 @@
     <div>
       <p>Created by Thomas Veit</p>
       <a
-        href="https://github.com/ThomV93/shopping-cart"
+        href="https://github.com/ThomV93/vue-shopping-cart"
         target="_blank"
         rel="noreferrer noopener"
       >
