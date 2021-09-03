@@ -26,6 +26,7 @@ export default {
 
 <style lang="scss">
 $yellow: rgb(251, 194, 43);
+$blue: rgba(58, 79, 153, 1);
 
 .home {
   font-family: "Open Sans";
@@ -35,7 +36,7 @@ $yellow: rgb(251, 194, 43);
   height: 92vh;
   overflow: hidden;
   background: $yellow;
-  background: linear-gradient(207deg, $yellow 4%, rgba(58, 79, 153, 1) 76%);
+  background: linear-gradient(207deg, $yellow 4%, $blue 76%);
 
   .text-container {
     display: flex;
