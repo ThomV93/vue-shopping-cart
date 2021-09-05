@@ -8,7 +8,7 @@
       <h2>Prices</h2>
       <span>Last Updated {{ card.tcgplayer.updatedAt }}</span>
       <CardPrices :card="card" />
-      <button>Add to Cart</button>
+      <button @click="sendToCard()">Add to Cart</button>
     </div>
   </div>
 </template>
@@ -39,6 +39,35 @@ export default {
     } catch (error) {
       console.log(error);
     }
+  },
+  methods: {
+    sendToCard() {
+      let index = this.$store.state.cart.findIndex(
+        (card) => card.name === this.cartItem.name
+      );
+      const selectedItem = this.$store.state.cart.filter(
+        (card) => card.name === this.cartItem.name
+      );
+      index === -1
+        ? this.$store.dispatch("pushToCart", this.cartItem)
+        : selectedItem[0].amount++;
+    },
+  },
+  computed: {
+    prices() {
+      return this.card.tcgplayer.prices;
+    },
+    cartItem() {
+      return {
+        id: this.card.id,
+        image: this.card.images.small,
+        name: this.card.name,
+        setName: this.card.set.name,
+        setDate: this.card.set.releaseDate,
+        price: this.prices[Object.keys(this.prices)[0]].market,
+        amount: 1,
+      };
+    },
   },
 };
 </script>
