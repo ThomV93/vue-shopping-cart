@@ -1,7 +1,7 @@
 <template>
-  <div className="item-container">
-    <div className="info-container">
-      <img className="card" :src="item.image" alt="{name}" />
+  <div class="item-container">
+    <div class="info-container">
+      <img class="card" :src="item.image" alt="{name}" />
       <div>
         <p>
           Name <span>{{ item.name }}</span>
@@ -15,14 +15,14 @@
         <p>
           Price <span>$ {{ item.price }}</span>
         </p>
-        <div className="amount-container">
+        <div class="amount-container">
           <img src="@/assets/images/minus.svg" alt="minus" />
           <p>{{ item.amount }}</p>
           <img src="@/assets/images/plus.svg" alt="plus" />
         </div>
       </div>
     </div>
-    <div className="price-container">
+    <div class="price-container">
       <img src="@/assets/images/x-circle.svg" alt="x-circle" />
       <p>$ {{ subTotal.toFixed(2) }}</p>
     </div>

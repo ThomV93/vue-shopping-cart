@@ -1,10 +1,10 @@
 <template>
-  <div className="cart">
-    <div className="cart-items-container">
+  <div class="cart">
+    <div class="cart-items-container">
       <h1>Shopping Cart</h1>
       <CartItem v-for="item in cart" :key="item.id" :item="item" />
     </div>
-    <!-- <OrderSummary total="{total}" /> -->
+    <!-- <OrderSummary :total="total" /> -->
   </div>
 </template>
 
@@ -19,6 +19,9 @@ export default {
   computed: {
     cart() {
       return this.$store.state.cart;
+    },
+    total() {
+      return this.cart.reduce((a, b) => a + b.price * b.amount, 0).toFixed(2);
     },
   },
 };
