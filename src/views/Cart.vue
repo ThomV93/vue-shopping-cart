@@ -4,17 +4,19 @@
       <h1>Shopping Cart</h1>
       <CartItem v-for="item in cart" :key="item.id" :item="item" />
     </div>
-    <!-- <OrderSummary :total="total" /> -->
+    <OrderSummary :total="total" />
   </div>
 </template>
 
 <script>
 import CartItem from "@/components/CartItem.vue";
+import OrderSummary from "@/components/OrderSummary.vue";
 
 export default {
   name: "Cart",
   components: {
     CartItem,
+    OrderSummary,
   },
   computed: {
     cart() {
@@ -45,21 +47,6 @@ export default {
   .cart-items-container {
     width: 60%;
     margin-right: 2rem;
-  }
-
-  button {
-    &:hover {
-      background-color: #45a049;
-    }
-    width: 100%;
-    font-size: 1rem;
-    background-color: #4caf50;
-    color: white;
-    padding: 12px 20px;
-    margin-top: 1.5rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
   }
 }
 </style>
