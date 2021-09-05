@@ -1,10 +1,10 @@
 <template>
-  <div v-if="card" className="card">
+  <div v-if="card" class="card">
     <img :src="card.images.large" :alt="card.name" />
-    <div className="card-details">
-      <!-- <CardTitle title="{title}" /> -->
+    <div class="card-details">
+      <CardTitle :card="card" />
       <h2>Details</h2>
-      <!-- <CardDetails details="{details}" /> -->
+      <CardInfo :card="card" />
       <h2>Prices</h2>
       <span>Last Updated {{ card.tcgplayer.updatedAt }}</span>
       <!-- <CardPrices priceInfo="{priceInfo}" /> -->
@@ -14,8 +14,15 @@
 </template>
 
 <script>
+import CardTitle from "@/components/CardTitle.vue";
+import CardInfo from "@/components/CardInfo.vue";
+
 export default {
   name: "CardDetails",
+  components: {
+    CardTitle,
+    CardInfo,
+  },
   props: ["id"],
   data() {
     return {

@@ -1,6 +1,6 @@
 <template>
-  <div className="cards">
-    <div className="card-container">
+  <div class="cards">
+    <div class="card-container">
       <Card v-for="card in cards" :key="card.id" :card="card" />
     </div>
   </div>
@@ -14,6 +14,7 @@ export default {
   components: {
     Card,
   },
+  // mudar ID para algo mais especifico e no plural
   props: ["id"],
   data() {
     return {

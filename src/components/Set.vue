@@ -1,11 +1,11 @@
 <template>
   <router-link :to="{ name: 'Cards', params: { id: set.id } }">
-    <div className="set-container">
+    <div class="set-container">
       <img :src="set.images.logo" :alt="set.name" />
       <div>
         <img :src="set.images.symbol" alt="symbol" />
-        <p className="set-name">{{ set.name }}</p>
-        <p className="set-release-date">Released in {{ set.releaseDate }}</p>
+        <p class="set-name">{{ set.name }}</p>
+        <p class="set-release-date">Released in {{ set.releaseDate }}</p>
       </div>
     </div>
   </router-link>

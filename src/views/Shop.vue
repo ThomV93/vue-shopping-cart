@@ -1,8 +1,11 @@
 <template>
-  <div className="shop">
+  <div class="shop">
     <h1>Available Sets</h1>
-    <div className="sets" v-if="sets">
+    <div class="sets" v-if="sets">
       <Set v-for="set in sets" :key="set.ptcgoCode" :set="set" />
+    </div>
+    <div v-else>
+      <p>Loading ...</p>
     </div>
   </div>
 </template>
@@ -20,16 +23,21 @@ export default {
       sets: null,
     };
   },
-  async created() {
-    try {
-      const data = await fetch(
-        "https://api.pokemontcg.io/v2/sets?q=series:base"
-      );
-      const items = await data.json();
-      this.sets = items.data;
-    } catch (error) {
-      console.log(error);
-    }
+  created() {
+    this.getSets();
+  },
+  methods: {
+    async getSets() {
+      try {
+        const data = await fetch(
+          "https://api.pokemontcg.io/v2/sets?q=series:base"
+        );
+        const items = await data.json();
+        this.sets = items.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div className="navbar">
+  <div class="navbar">
     <h1>Poké Antiques</h1>
     <ul>
       <router-link to="/">

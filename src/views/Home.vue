@@ -1,13 +1,13 @@
 <template>
-  <div className="home">
-    <div className="text-container">
+  <div class="home">
+    <div class="text-container">
       <h1>Welcome to Poké Antiques</h1>
       <h3>
         Join our nostalgic community dedicated to the first Pokémon TCG sets
       </h3>
       <Credits />
     </div>
-    <div className="image-container">
+    <div class="image-container">
       <img src="@/assets/images/pokeball.png" alt="Pokeball" />
     </div>
   </div>
