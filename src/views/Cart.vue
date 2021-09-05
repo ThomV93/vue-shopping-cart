@@ -2,14 +2,26 @@
   <div className="cart">
     <div className="cart-items-container">
       <h1>Shopping Cart</h1>
-      <!-- <CartItem item="{item}" key="{item.id}" i="{i}" /> -->
+      <CartItem v-for="item in cart" :key="item.id" :item="item" />
     </div>
     <!-- <OrderSummary total="{total}" /> -->
   </div>
 </template>
 
 <script>
-export default {};
+import CartItem from "@/components/CartItem.vue";
+
+export default {
+  name: "Cart",
+  components: {
+    CartItem,
+  },
+  computed: {
+    cart() {
+      return this.$store.state.cart;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
