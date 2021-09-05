@@ -7,7 +7,7 @@
       <CardInfo :card="card" />
       <h2>Prices</h2>
       <span>Last Updated {{ card.tcgplayer.updatedAt }}</span>
-      <!-- <CardPrices priceInfo="{priceInfo}" /> -->
+      <CardPrices :card="card" />
       <button>Add to Cart</button>
     </div>
   </div>
@@ -16,12 +16,14 @@
 <script>
 import CardTitle from "@/components/CardTitle.vue";
 import CardInfo from "@/components/CardInfo.vue";
+import CardPrices from "@/components/CardPrices.vue";
 
 export default {
   name: "CardDetails",
   components: {
     CardTitle,
     CardInfo,
+    CardPrices,
   },
   props: ["id"],
   data() {
