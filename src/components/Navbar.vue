@@ -9,7 +9,9 @@
         <li>Shop</li>
       </router-link>
       <router-link to="/cart">
-        <li>Cart <span>(0)</span></li>
+        <li>
+          Cart <span>({{ cartItems }})</span>
+        </li>
       </router-link>
     </ul>
   </div>
@@ -18,6 +20,11 @@
 <script>
 export default {
   name: "Navbar",
+  computed: {
+    cartItems() {
+      return this.$store.state.cart.length;
+    },
+  },
 };
 </script>
 
