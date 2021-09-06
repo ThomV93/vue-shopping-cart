@@ -12,13 +12,19 @@ export default createStore({
       const newArray = state.cart.filter((item) => item.id !== id);
       state.cart = newArray;
     },
+    UP_AMOUNT(state, idx) {
+      state.cart[idx].amount++;
+    },
   },
   actions: {
     pushToCart({ commit }, card) {
       commit("ADD_CARD", card);
     },
-    removeFromCart({ commit }, card) {
-      commit("REMOVE_CARD", card);
+    removeFromCart({ commit }, id) {
+      commit("REMOVE_CARD", id);
+    },
+    increaseAmt({ commit }, idx) {
+      commit("UP_AMOUNT", idx);
     },
   },
   modules: {},
