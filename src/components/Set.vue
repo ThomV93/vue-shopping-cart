@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'Cards', params: { id: set.id } }">
+  <router-link :to="{ name: 'Cards', params: { set: set.id } }">
     <div class="set-container">
       <img :src="set.images.logo" :alt="set.name" />
       <div>

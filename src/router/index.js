@@ -17,13 +17,13 @@ const routes = [
     component: Shop,
   },
   {
-    path: "/shop/:id",
+    path: "/shop/:set",
     name: "Cards",
     props: true,
     component: Cards,
   },
   {
-    path: "/card/:id",
+    path: "/card/:selectedCard",
     name: "CardDetails",
     props: true,
     component: CardDetails,

@@ -28,7 +28,7 @@ export default {
     CardPrices,
     Loading,
   },
-  props: ["id"],
+  props: ["selectedCard"],
   data() {
     return {
       card: null,
@@ -36,7 +36,9 @@ export default {
   },
   async created() {
     try {
-      const data = await fetch(`https://api.pokemontcg.io/v2/cards/${this.id}`);
+      const data = await fetch(
+        `https://api.pokemontcg.io/v2/cards/${this.selectedCard}`
+      );
       const item = await data.json();
       this.card = item.data;
     } catch (error) {

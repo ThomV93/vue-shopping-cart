@@ -17,8 +17,7 @@ export default {
     Card,
     Loading,
   },
-  // mudar ID para algo mais especifico e no plural
-  props: ["id"],
+  props: ["set"],
   data() {
     return {
       cards: null,
@@ -27,7 +26,7 @@ export default {
   async created() {
     try {
       const data = await fetch(
-        `https://api.pokemontcg.io/v2/cards?q=set.id:${this.id}`
+        `https://api.pokemontcg.io/v2/cards?q=set.id:${this.set}`
       );
       const set = await data.json();
       this.cards = set.data;
