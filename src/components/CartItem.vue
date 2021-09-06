@@ -18,7 +18,11 @@
         <div class="amount-container">
           <img src="@/assets/images/minus.svg" alt="minus" />
           <p>{{ item.amount }}</p>
-          <img src="@/assets/images/plus.svg" alt="plus" />
+          <img
+            @click="increaseAmount()"
+            src="@/assets/images/plus.svg"
+            alt="plus"
+          />
         </div>
       </div>
     </div>
@@ -41,10 +45,17 @@ export default {
       type: Object,
       required: true,
     },
+    index: {
+      type: Number,
+      required: true,
+    },
   },
   methods: {
     removeCard() {
       this.$store.dispatch("removeFromCart", this.item.id);
+    },
+    increaseAmount() {
+      this.$store.dispatch("increaseAmt", this.index);
     },
   },
   computed: {

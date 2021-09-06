@@ -2,7 +2,12 @@
   <div class="cart">
     <div class="cart-items-container">
       <h1>Shopping Cart</h1>
-      <CartItem v-for="item in cart" :key="item.id" :item="item" />
+      <CartItem
+        v-for="(item, index) in cart"
+        :key="item.id"
+        :item="item"
+        :index="index"
+      />
     </div>
     <OrderSummary :total="total" />
   </div>
