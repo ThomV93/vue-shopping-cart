@@ -23,7 +23,11 @@
       </div>
     </div>
     <div class="price-container">
-      <img src="@/assets/images/x-circle.svg" alt="x-circle" />
+      <img
+        @click="removeCard()"
+        src="@/assets/images/x-circle.svg"
+        alt="x-circle"
+      />
       <p>$ {{ subTotal.toFixed(2) }}</p>
     </div>
   </div>
@@ -36,6 +40,11 @@ export default {
     item: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    removeCard() {
+      this.$store.dispatch("removeFromCart", this.item.id);
     },
   },
   computed: {
