@@ -11,12 +11,14 @@
       <button @click="sendToCard()">Add to Cart</button>
     </div>
   </div>
+  <Loading v-else />
 </template>
 
 <script>
 import CardTitle from "@/components/CardTitle.vue";
 import CardInfo from "@/components/CardInfo.vue";
 import CardPrices from "@/components/CardPrices.vue";
+import Loading from "@/components/Loading.vue";
 
 export default {
   name: "CardDetails",
@@ -24,6 +26,7 @@ export default {
     CardTitle,
     CardInfo,
     CardPrices,
+    Loading,
   },
   props: ["id"],
   data() {

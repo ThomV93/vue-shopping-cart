@@ -1,18 +1,21 @@
 <template>
   <div class="cards">
-    <div class="card-container">
+    <div class="card-container" v-if="cards">
       <Card v-for="card in cards" :key="card.id" :card="card" />
     </div>
+    <Loading v-else />
   </div>
 </template>
 
 <script>
 import Card from "@/components/Card.vue";
+import Loading from "@/components/Loading.vue";
 
 export default {
   name: "Cards",
   components: {
     Card,
+    Loading,
   },
   // mudar ID para algo mais especifico e no plural
   props: ["id"],

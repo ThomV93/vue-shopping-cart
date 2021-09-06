@@ -4,19 +4,19 @@
     <div class="sets" v-if="sets">
       <Set v-for="set in sets" :key="set.ptcgoCode" :set="set" />
     </div>
-    <div v-else>
-      <p>Loading ...</p>
-    </div>
+    <Loading v-else />
   </div>
 </template>
 
 <script>
 import Set from "@/components/Set.vue";
+import Loading from "@/components/Loading.vue";
 
 export default {
   name: "Shop",
   components: {
     Set,
+    Loading,
   },
   data() {
     return {
