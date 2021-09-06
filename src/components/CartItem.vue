@@ -16,7 +16,11 @@
           Price <span>$ {{ item.price }}</span>
         </p>
         <div class="amount-container">
-          <img src="@/assets/images/minus.svg" alt="minus" />
+          <img
+            @click="decreaseAmount()"
+            src="@/assets/images/minus.svg"
+            alt="minus"
+          />
           <p>{{ item.amount }}</p>
           <img
             @click="increaseAmount()"
@@ -56,6 +60,9 @@ export default {
     },
     increaseAmount() {
       this.$store.dispatch("increaseAmt", this.index);
+    },
+    decreaseAmount() {
+      this.$store.dispatch("decreaseAmt", this.index);
     },
   },
   computed: {
