@@ -28,7 +28,7 @@ export default {
   name: "OrderSummary",
   props: {
     total: {
-      type: Object,
+      type: String,
       required: true,
     },
   },
