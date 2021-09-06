@@ -9,12 +9,16 @@ export default createStore({
       state.cart.push(card);
     },
     REMOVE_CARD(state, id) {
-      state.cart.filter((item) => item.id !== id);
+      const newArray = state.cart.filter((item) => item.id !== id);
+      state.cart = newArray;
     },
   },
   actions: {
     pushToCart({ commit }, card) {
       commit("ADD_CARD", card);
+    },
+    removeFromCart({ commit }, card) {
+      commit("REMOVE_CARD", card);
     },
   },
   modules: {},
