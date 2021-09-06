@@ -18,6 +18,9 @@ export default createStore({
     DOWN_AMOUNT(state, idx) {
       state.cart[idx].amount--;
     },
+    CLEAR_CART(state) {
+      state.cart = [];
+    },
   },
   actions: {
     pushToCart({ commit }, card) {
@@ -34,6 +37,8 @@ export default createStore({
         commit("DOWN_AMOUNT", idx);
       }
     },
+    emptyCart({ commit }) {
+      commit("CLEAR_CART");
+    },
   },
-  modules: {},
 });
