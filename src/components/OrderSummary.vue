@@ -17,7 +17,7 @@
         <p>$ {{ total }}</p>
       </div>
       <router-link :to="{ name: 'Home' }">
-        <button>PROCEED TO CHECKOUT</button>
+        <button @click="cleanCart()">PROCEED TO CHECKOUT</button>
       </router-link>
     </div>
   </div>
@@ -30,6 +30,11 @@ export default {
     total: {
       type: String,
       required: true,
+    },
+  },
+  methods: {
+    cleanCart() {
+      this.$store.dispatch("emptyCart");
     },
   },
 };
