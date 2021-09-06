@@ -15,6 +15,9 @@ export default createStore({
     UP_AMOUNT(state, idx) {
       state.cart[idx].amount++;
     },
+    DOWN_AMOUNT(state, idx) {
+      state.cart[idx].amount--;
+    },
   },
   actions: {
     pushToCart({ commit }, card) {
@@ -25,6 +28,11 @@ export default createStore({
     },
     increaseAmt({ commit }, idx) {
       commit("UP_AMOUNT", idx);
+    },
+    decreaseAmt({ commit }, idx) {
+      if (this.state.cart[idx].amount > 1) {
+        commit("DOWN_AMOUNT", idx);
+      }
     },
   },
   modules: {},
